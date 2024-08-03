@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js"></script>
+    <script src="passarButton.js"></script>
+    <script src="passarRealTime.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Input</title>
 </head>
 <body>
+    <div>
+    Passar com botão:
     <div>
         <label for="textInput">Texto</label>
         <input type="text" id="textInput">
@@ -15,7 +18,22 @@
     </div>
     <div>
         <label for="textArea">Campo De Texto</label>
-        <textarea name="" id="textArea" rows="2" cols="10"></textarea>
+        <textarea name="" id="textArea" rows="2" cols="20"></textarea>
+    </div>
+    </div>
+    <div>
+        <div>
+            <div on>
+                Passar RT:
+                <label for="textInputReal">Texto RT:</label>
+                <input type="text" id="textInputReal">
+                <button onclick="passarTextoTempoReal()">Levaaaa</button>
+            </div>
+            <div>
+                <label for="textAreaReal">Campo Real:</label>
+                <textarea name="" id="textAreaReal" rows="2" cols="20"></textarea>
+            </div>
+        </div>
     </div>
 </body>
 </html>

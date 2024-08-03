@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eventos de Janela</title>
+</head>
+<body>
+    <script>
+        window.addEventListener('load', function() {
+            console.log('Página carregada!');
+        });
+
+        window.addEventListener('resize', function() {
+            console.log('Janela redimensionada:', window.innerWidth, window.innerHeight);
+        });
+
+        window.addEventListener('scroll', function() {
+            console.log('Página rolada:', window.scrollY);
+        });
+
+        window.addEventListener('beforeunload', function(event) {
+            event.returnValue = 'Tem certeza que deseja sair?';
+        });
+    </script>
+</body>
+</html>

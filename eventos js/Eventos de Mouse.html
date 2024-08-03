@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eventos de Mouse</title>
+</head>
+<body>
+    <button id="clickEvent">Click Me</button>
+    <div id="mouseOverEvent" style="width: 100px; height: 100px; background-color: lightblue;">Hover Over Me</div>
+    <div id="mouseOutEvent" style="width: 100px; height: 100px; background-color: lightgreen;">Hover Out Me</div>
+
+    <script>
+        document.getElementById('clickEvent').addEventListener('click', function() {
+            alert('Button clicked!');
+        });
+
+        document.getElementById('mouseOverEvent').addEventListener('mouseover', function() {
+            this.style.backgroundColor = 'lightcoral';
+        });
+
+        document.getElementById('mouseOutEvent').addEventListener('mouseout', function() {
+            this.style.backgroundColor = 'lightgreen';
+        });
+    </script>
+</body>
+</html>

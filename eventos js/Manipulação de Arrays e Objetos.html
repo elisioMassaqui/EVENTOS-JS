@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manipulação de Arrays e Objetos</title>
+</head>
+<body>
+    <div id="output"></div>
+
+    <script>
+        const array = [1, 2, 3, 4, 5];
+        const doubledArray = array.map(num => num * 2);
+        
+        const obj = {
+            name: 'John',
+            age: 30,
+            city: 'New York'
+        };
+
+        obj.country = 'USA';
+
+        document.getElementById('output').innerText = 
+            `Doubled Array: ${doubledArray}\nObject: ${JSON.stringify(obj, null, 2)}`;
+    </script>
+</body>
+</html>

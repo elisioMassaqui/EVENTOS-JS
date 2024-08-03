@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Outros Eventos</title>
+</head>
+<body>
+    <div id="contextMenuEvent" style="width: 100px; height: 100px; background-color: lightblue;">Right Click Me</div>
+    <div id="doubleClickEvent" style="width: 100px; height: 100px; background-color: lightcoral;">Double Click Me</div>
+    <input type="file" id="fileInputEvent">
+    <video src="/Arduino CLI_ An Introduction.mp4">video</video>
+
+    <script>
+        document.getElementById('contextMenuEvent').addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // Impede o menu de contexto padrão
+            alert('Context menu event!');
+        });
+
+        document.getElementById('doubleClickEvent').addEventListener('dblclick', function() {
+            alert('Double click event!');
+        });
+
+        document.getElementById('fileInputEvent').addEventListener('change', function(event) {
+            console.log('File selected:', event.target.files[0].name);
+        });
+
+        document.addEventListener('copy', function(event) {
+            console.log('Copy event:', event);
+        });
+
+        document.addEventListener('paste', function(event) {
+            console.log('Paste event:', event);
+        });
+    </script>
+</body>
+</html>

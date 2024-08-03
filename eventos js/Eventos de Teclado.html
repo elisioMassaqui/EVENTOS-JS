@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eventos de Teclado</title>
+</head>
+<body>
+    <input type="text" id="keyDownEvent" placeholder="Press any key...">
+    <input type="text" id="keyUpEvent" placeholder="Release any key...">
+
+    <script>
+        document.getElementById('keyDownEvent').addEventListener('keydown', function(event) {
+            console.log('Key down:', event.key);
+        });
+
+        document.getElementById('keyUpEvent').addEventListener('keyup', function(event) {
+            console.log('Key up:', event.key);
+        });
+    </script>
+</body>
+</html>

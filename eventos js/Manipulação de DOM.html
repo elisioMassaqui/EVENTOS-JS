@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manipulação de DOM</title>
+    <style>
+        #content {
+            font-size: 20px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">Hello, world!</div>
+    <button id="changeText">Change Text</button>
+
+    <script>
+        document.getElementById('changeText').addEventListener('click', function() {
+            document.getElementById('content').innerText = 'Text changed!';
+        });
+    </script>
+</body>
+</html>

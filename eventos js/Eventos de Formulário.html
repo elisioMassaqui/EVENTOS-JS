@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eventos de Formulário</title>
+</head>
+<body>
+    <form id="formEvent">
+        <input type="text" id="inputField" placeholder="Type something...">
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('formEvent').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio do formulário
+            alert('Formulário enviado!');
+        });
+
+        document.getElementById('inputField').addEventListener('focus', function() {
+            console.log('Input focused');
+        });
+
+        document.getElementById('inputField').addEventListener('blur', function() {
+            console.log('Input blurred');
+        });
+
+        document.getElementById('inputField').addEventListener('change', function() {
+            console.log('Input changed:', this.value);
+        });
+    </script>
+</body>
+</html>
