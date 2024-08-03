@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico em Tempo Real</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myChart" width="400" height="200"></canvas>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const data = {
+            labels: [],
+            datasets: [{
+                label: 'Valor',
+                data: [],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                fill: false
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    x: {
+                        type: 'realtime',
+                        realtime: {
+                            delay: 2000,
+                            onRefresh: chart => {
+                                const now = Date.now();
+                                chart.data.labels.push(now);
+                                chart.data.datasets[0].data.push({
+                                    x: now,
+                                    y: Math.random() * 100
+                                });
+                            }
+                        }
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const myChart = new Chart(ctx, config);
+
+        // Adicionar novos dados a cada segundo
+        setInterval(() => {
+            myChart.update('quiet');
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca ao Digitar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="searchInput" placeholder="Buscar...">
+    <ul id="itemList">
+        <li>Maçã</li>
+        <li>Banana</li>
+        <li>Cereja</li>
+        <li>Data</li>
+        <li>Figo</li>
+        <li>Uva</li>
+    </ul>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const filter = this.value.toLowerCase();
+            const items = document.querySelectorAll('#itemList li');
+
+            items.forEach(item => {
+                if (item.textContent.toLowerCase().includes(filter)) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

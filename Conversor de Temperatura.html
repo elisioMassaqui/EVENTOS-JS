@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperatura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="tempInput">Temperatura:</label>
+        <input type="number" id="tempInput">
+    </div>
+
+    <div class="container">
+        <button onclick="convert('toCelsius')">Converter para Celsius</button>
+        <button onclick="convert('toFahrenheit')">Converter para Fahrenheit</button>
+    </div>
+
+    <div class="container">
+        <p>Resultado: <span id="tempResult"></span></p>
+    </div>
+
+    <script>
+        function convert(conversion) {
+            const tempInput = parseFloat(document.getElementById('tempInput').value);
+            let result;
+
+            if (isNaN(tempInput)) {
+                alert('Por favor, insira uma temperatura válida.');
+                return;
+            }
+
+            if (conversion === 'toCelsius') {
+                result = (tempInput - 32) * 5 / 9;
+            } else if (conversion === 'toFahrenheit') {
+                result = (tempInput * 9 / 5) + 32;
+            }
+
+            document.getElementById('tempResult').textContent = result.toFixed(2);
+        }
+    </script>
+</body>
+</html>

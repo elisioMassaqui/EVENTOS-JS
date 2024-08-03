@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input e Manipulação de Dados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="textInput">Texto:</label>
+        <input type="text" id="textInput">
+        <button onclick="passToTextarea()">Passar para Text Area</button>
+    </div>
+    <div class="container">
+        <label for="textArea">Área de Texto:</label>
+        <textarea id="textArea" rows="5" cols="30"></textarea>
+    </div>
+
+    <script>
+        function passToTextarea() {
+            const textInput = document.getElementById('textInput').value;
+            const textArea = document.getElementById('textArea');
+            textArea.value = textInput;
+        }
+    </script>
+</body>
+</html>

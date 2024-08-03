@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            margin-bottom: 20px;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="taskInput">Nova Tarefa:</label>
+        <input type="text" id="taskInput">
+        <button onclick="addTask()">Adicionar Tarefa</button>
+    </div>
+
+    <div class="container">
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        function addTask() {
+            const taskInput = document.getElementById('taskInput');
+            const taskList = document.getElementById('taskList');
+            const taskText = taskInput.value.trim();
+            
+            if (taskText === '') {
+                alert('Por favor, insira uma tarefa.');
+                return;
+            }
+
+            const li = document.createElement('li');
+            li.textContent = taskText;
+            li.addEventListener('click', () => {
+                li.classList.toggle('completed');
+            });
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Remover';
+            deleteButton.addEventListener('click', () => {
+                taskList.removeChild(li);
+            });
+
+            li.appendChild(deleteButton);
+            taskList.appendChild(li);
+
+            taskInput.value = '';
+        }
+    </script>
+</body>
+</html>

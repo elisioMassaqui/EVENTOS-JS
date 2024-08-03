@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Palavras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="wordInput">Texto:</label>
+        <textarea id="wordInput" rows="5" cols="30"></textarea>
+    </div>
+
+    <div class="container">
+        <button onclick="countWords()">Contar Palavras</button>
+    </div>
+
+    <div class="container">
+        <p>Contagem de Palavras: <span id="wordCount"></span></p>
+    </div>
+
+    <script>
+        function countWords() {
+            const wordInput = document.getElementById('wordInput').value.trim();
+            if (wordInput === '') {
+                document.getElementById('wordCount').textContent = 0;
+                return;
+            }
+
+            const words = wordInput.split(/\s+/);
+            document.getElementById('wordCount').textContent = words.length;
+        }
+    </script>
+</body>
+</html>
