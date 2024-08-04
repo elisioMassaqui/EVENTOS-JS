@@ -3,14 +3,19 @@
 <head>
     <title>Eventos de Janela</title>
 </head>
-<body>
+<body style="margin: 0; padding: 0; display: flex; background-color: tomato; font-family: cursive; font-weight: 200; justify-content: center;">
+    
+    <h3 id="tela">WH</h3>
+    
     <script>
+        const tela = document.getElementById('tela')
         window.addEventListener('load', function() {
             console.log('Página carregada!');
         });
 
         window.addEventListener('resize', function() {
             console.log('Janela redimensionada:', window.innerWidth, window.innerHeight);
+            tela.innerText = 'Janela redimensionada:'+ ' W:' + window.innerWidth + ' H:' + window.innerHeight
         });
 
         window.addEventListener('scroll', function() {

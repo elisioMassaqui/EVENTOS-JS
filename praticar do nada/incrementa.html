@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incrementa</title>
+</head>
+<body>
+    <button id="clicar">Clicar</button>
+    <div id="somar">
+        Esperando algo pra somar...
+    </div>
+
+    <script>
+        let somar = 0
+        document.getElementById('clicar').addEventListener('click', function(){
+            somar += 1
+            const somado = document.getElementById('somar')
+            somado.innerText = 'Soma em andamento: ' + somar
+        })
+
+        document.getElementById('clicar').addEventListener('dblclick', function(){
+            autoSoma()
+        })
+
+        function autoSoma(params) {
+            somar += 1
+            const somado = document.getElementById('somar')
+            somado.innerText = 'Soma em andamento: ' + somar
+            setInterval(autoSoma, 500)
+        }
+        
+    </script>
+</body>
+</html>

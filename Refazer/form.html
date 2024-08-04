@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body style="background-color: blueviolet; font-family: cursive; font-weight: 200;">
+    <label for="InputField">Escreva aqui: </label>
+    <input type="text" id="InputField">
+    <h4 id="submeta">Submeta, por favor...</h4>
+    
+    <script>
+        const form = document.getElementById('InputField')
+        const submeta = document.getElementById('submeta')
+        document.getElementById('InputField').addEventListener('input', function(event){
+            submeta.innerText = event.target.value
+        })
+    </script>
+</body>
+</html>

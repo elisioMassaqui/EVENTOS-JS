@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Outros Eventos</title>
+</head>
+<body>
+    <div id="contextMenuEvent" style="width: 100px; height: 100px; background-color: lightblue;">Right Click Me</div>
+    <div id="doubleClickEvent" style="width: 100px; height: 100px; background-color: lightcoral;">Double Click Me</div>
+    <input type="file" id="fileInputEvent">
+    <h3 id="mouseDir">Mouse Direito</h3>
+    <h3>sucesso00000</h3>
+
+    <script>
+        numero = 0
+        //Math.Clamp raiz js, personalizado
+        function incrementa(valorMax) {
+            if (numero < valorMax) {
+                numero += 1
+            }
+            else{
+                return
+            }
+        }
+        function decrementa(valorMin) {
+            if (numero > valorMin) {
+                numero -= 1
+            }else{
+                return
+            }
+        }
+        let mouseDir = document.getElementById('mouseDir')
+        document.getElementById('contextMenuEvent').addEventListener('mousewheel', function(event) {
+            event.preventDefault(); // Impede o menu de contexto padrão
+            console.log('Mouse direito')
+            
+            //Math.clamp manualmente, é assim que fazemos as coisas
+            //Senão seria um insulto
+            //Agora sim
+            incrementa(valorMax = 10)
+
+            console.log('valor mais:', numero)
+            texto = 'valor mais:' + numero
+            mouseDir.innerText = texto
+        });
+
+        document.getElementById('doubleClickEvent').addEventListener('mousewheel', function(event) {
+            event.preventDefault(); // Impede o menu de contexto padrão
+            console.log('Mouse direito')
+            
+             //Math.clamp manualmente, é assim que fazemos as coisas
+            //Senão seria um insulto
+            //Agora sim
+            decrementa(valorMin = -10)
+
+            console.log('valor menos:', numero)
+            texto = 'valor menos:' + numero
+            mouseDir.innerText = texto
+        });
+
+
+        document.getElementById('doubleClickEvent').addEventListener('dblclick', function() {
+            alert('Double click event!');
+        });
+
+        document.getElementById('fileInputEvent').addEventListener('change', function(event) {
+            console.log('File selected:', event.target.files[0].name);
+        });
+
+        document.addEventListener('copy', function(event) {
+            console.log('Copy event:', event);
+        });
+
+        document.addEventListener('paste', function(event) {
+            console.log('Paste event:', event);
+        });
+    </script>
+</body>
+</html>

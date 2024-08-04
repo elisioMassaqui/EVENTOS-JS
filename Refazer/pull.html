@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Eventos de Teclado</title>
+</head>
+
+<body
+    style="display: flex; flex-direction: column; justify-content: center; font-family: monospace; color: aqua; background-color: rgba(17, 17, 17, 0.918);">
+
+    <h3 id="PULLDOWN">PULLDOWN:</h3>
+    <input
+        style="padding: 10px; border: 0; border-radius: 10px; width: 300px; height: 20px; background-color: #ff510091; color: rgb(255, 255, 255); font-family: monospace; font-weight: 200;"
+        type="text" id="keyDownEvent" placeholder="Press any key...">
+    <h3 id="PULLUP">PULLUP: </h3>
+    <input
+        style="padding: 10px; border: 0; border-radius: 10px; width: 300px; height: 20px; background-color: #ff510091; color: rgb(255, 255, 255); font-family: monospace; font-weight: 200;"
+        type="text" id="keyUpEvent" placeholder="Release any key...">
+
+    <script>
+        const PULLDOWN = document.getElementById('PULLDOWN')
+        let somarDown = 0
+        document.getElementById('keyDownEvent').addEventListener('keydown', function (event) {
+            console.log('Key down:', event.key);
+            somarDown += 1
+            PULLDOWN.innerText = 'PULLDOWN: - ' + 'Key down: ' + event.key + ", somarDown: " + somarDown
+        });
+
+        const PULLUP = document.getElementById('PULLUP')
+        let somarUP = 1
+        document.getElementById('keyUpEvent').addEventListener('keyup', function (event) {
+            console.log('Key up:', event.key);
+            somarUP -= 2
+            PULLUP.innerText = 'PULLUP: - ' + 'Key up: ' + event.key + ",  somarUP: " + somarUP
+        });
+    </script>
+</body>
+
+</html>

@@ -10,16 +10,38 @@
     <h3 id="mouseDir">Mouse Direito</h3>
 
     <script>
-        let mouseDir = document.getElementById('mouseDir')
         mais = 0
-        document.getElementById('contextMenuEvent').addEventListener('contextmenu', function(event) {
+        let mouseDir = document.getElementById('mouseDir')
+        document.getElementById('contextMenuEvent').addEventListener('mousewheel', function(event) {
             event.preventDefault(); // Impede o menu de contexto padrão
             console.log('Mouse direito')
             mais += 1
+            //Math.clamp manualmente, é assim que fazemos as coisas
+            //Senão seria um insulto
+            //Mas tem um porem infelizmente
+            if (mais > 10) {
+                return
+            }
             console.log('valor mais:', mais)
             texto = 'valor mais:' + mais
             mouseDir.innerText = texto
         });
+
+        document.getElementById('doubleClickEvent').addEventListener('mousewheel', function(event) {
+            event.preventDefault(); // Impede o menu de contexto padrão
+            console.log('Mouse direito')
+            mais -= 1
+             //Math.clamp manualmente, é assim que fazemos as coisas
+            //Senão seria um insulto
+            //Mas tem um porem infelizmente
+            if (mais < -10) {
+                return
+            }
+            console.log('valor mais:', mais)
+            texto = 'valor mais:' + mais
+            mouseDir.innerText = texto
+        });
+
 
         document.getElementById('doubleClickEvent').addEventListener('dblclick', function() {
             alert('Double click event!');
